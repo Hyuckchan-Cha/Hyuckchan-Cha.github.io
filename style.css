@@ -30,3 +30,27 @@ h2 {
 a {
   color: #0366d6;
 }
+
+.links {
+  margin-top: 0;
+}
+
+.entry {
+  margin-bottom: 20px;
+}
+
+.entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+}
+
+.date {
+  margin-left: auto;
+  color: #666;
+  white-space: nowrap;
+}
+
+.entry p {
+  margin: 2px 0;
+}
