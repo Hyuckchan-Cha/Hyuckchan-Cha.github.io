@@ -54,3 +54,8 @@ a {
 .entry p {
   margin: 2px 0;
 }
+
+.entry .note {
+  color: #666;
+  font-size: 0.9em;
+}
