@@ -21,12 +21,6 @@ h1 {
   color: #666;
 }
 
-h2 {
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 4px;
-  margin-top: 40px;
-}
-
 a {
   color: #0366d6;
 }
@@ -35,27 +29,71 @@ a {
   margin-top: 0;
 }
 
-.entry {
-  margin-bottom: 20px;
-}
-
-.entry-head {
+/* Top menu */
+.site-nav {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px 16px;
   display: flex;
   flex-wrap: wrap;
-  gap: 0 8px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  border-bottom: 1px solid #ddd;
 }
 
-.date {
-  margin-left: auto;
+.site-name {
+  font-weight: 600;
+  color: #222;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
   color: #666;
-  white-space: nowrap;
+  text-decoration: none;
 }
 
-.entry p {
-  margin: 2px 0;
+.menu a:hover,
+.menu a.active {
+  color: #222;
 }
 
-.entry .note {
-  color: #666;
-  font-size: 0.9em;
+.menu a.active {
+  font-weight: 600;
+}
+
+/* Home: photo next to name */
+.intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #eee;
+  color: #888;
+  font-size: 0.85em;
+}
+
+.placeholder {
+  color: #888;
 }
