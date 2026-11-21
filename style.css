@@ -1,37 +1,73 @@
-body {
-  margin: 0;
-  background: #fafafa;
-  color: #222;
-  font-family: -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  line-height: 1.6;
+/* Colors: light by default, dark when the visitor's device uses dark mode */
+:root {
+  --bg: #ffffff;
+  --text: #1f2933;
+  --muted: #5f6b7a;
+  --accent: #1f3a60;
+  --accent-hover: #2f5a94;
+  --border: #e3e7ec;
+  --placeholder-bg: #eef1f5;
+  --placeholder-text: #8a95a3;
 }
 
-main {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 48px 16px;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111821;
+    --text: #e4e8ee;
+    --muted: #9aa5b3;
+    --accent: #8fb4e8;
+    --accent-hover: #b5cff2;
+    --border: #2a3542;
+    --placeholder-bg: #1c2632;
+    --placeholder-text: #6f7c8c;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
 }
 
 h1 {
-  margin-bottom: 0;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", "Nanum Myeongjo", serif;
+  font-size: 2.1em;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
-.affiliation {
-  margin-top: 4px;
-  color: #666;
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px 16px 64px;
 }
 
 a {
-  color: #0366d6;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.affiliation {
+  margin: 6px 0 0;
+  color: var(--muted);
 }
 
 .links {
-  margin-top: 0;
+  margin: 4px 0 0;
 }
 
 /* Top menu */
 .site-nav {
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto;
   padding: 20px 16px;
   display: flex;
@@ -39,47 +75,64 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 8px 24px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--border);
 }
 
 .site-name {
+  font-family: Georgia, "Times New Roman", "Nanum Myeongjo", serif;
+  font-size: 1.15em;
   font-weight: 600;
-  color: #222;
+  color: var(--text);
+}
+
+.site-name:hover {
+  color: var(--text);
   text-decoration: none;
 }
 
 .menu {
   display: flex;
-  gap: 20px;
+  gap: 24px;
 }
 
 .menu a {
-  color: #666;
+  color: var(--muted);
+}
+
+.menu a:hover {
+  color: var(--accent);
   text-decoration: none;
 }
 
-.menu a:hover,
 .menu a.active {
-  color: #222;
-}
-
-.menu a.active {
+  color: var(--accent);
   font-weight: 600;
 }
 
-/* Home: photo next to name */
-.intro {
+/* Home: photo on the left, name and bio on the right; stacked on narrow screens */
+.profile {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 24px;
-  margin-bottom: 24px;
+  align-items: flex-start;
+  gap: 36px;
+}
+
+.profile-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.bio {
+  margin-top: 20px;
+}
+
+.bio p {
+  margin: 0 0 14px;
 }
 
 .photo {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
+  width: 200px;
+  height: 250px;
+  border-radius: 12px;
   object-fit: cover;
   flex-shrink: 0;
 }
@@ -89,11 +142,23 @@ a {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: #eee;
-  color: #888;
+  background: var(--placeholder-bg);
+  color: var(--placeholder-text);
   font-size: 0.85em;
 }
 
+@media (max-width: 640px) {
+  .profile {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .photo {
+    width: 160px;
+    height: 200px;
+  }
+}
+
 .placeholder {
-  color: #888;
+  color: var(--muted);
 }
