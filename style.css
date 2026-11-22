@@ -1,25 +1,25 @@
 /* Colors: light by default, dark when the visitor's device uses dark mode */
 :root {
   --bg: #ffffff;
-  --text: #1f2933;
-  --muted: #5f6b7a;
-  --accent: #1f3a60;
-  --accent-hover: #2f5a94;
-  --border: #e3e7ec;
-  --placeholder-bg: #eef1f5;
-  --placeholder-text: #8a95a3;
+  --text: #22252a;
+  --muted: #6b7078;
+  --accent: #8a2f2a;
+  --border: #e6e8eb;
+  --placeholder-bg: #f1f2f4;
+  --placeholder-text: #9aa0a8;
+  --shadow: 0 10px 30px rgba(20, 24, 32, 0.12);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #111821;
-    --text: #e4e8ee;
-    --muted: #9aa5b3;
-    --accent: #8fb4e8;
-    --accent-hover: #b5cff2;
-    --border: #2a3542;
-    --placeholder-bg: #1c2632;
-    --placeholder-text: #6f7c8c;
+    --bg: #131417;
+    --text: #e7e8ea;
+    --muted: #9ca1a9;
+    --accent: #e08a80;
+    --border: #2a2c31;
+    --placeholder-bg: #1e2024;
+    --placeholder-text: #6f747c;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
   }
 }
 
@@ -28,51 +28,31 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.7;
-}
-
-h1 {
-  margin: 0;
-  font-family: Georgia, "Times New Roman", "Nanum Myeongjo", serif;
-  font-size: 2.1em;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-main {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 48px 16px 64px;
+  border-top: 4px solid var(--accent);
 }
 
 a {
   color: var(--accent);
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  text-underline-offset: 3px;
 }
 
 a:hover {
-  color: var(--accent-hover);
-  text-decoration: underline;
-}
-
-.affiliation {
-  margin: 6px 0 0;
-  color: var(--muted);
-}
-
-.links {
-  margin: 4px 0 0;
+  text-decoration-color: var(--accent);
 }
 
 /* Top menu */
 .site-nav {
-  max-width: 760px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 20px 16px;
+  padding: 22px 24px 16px;
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   gap: 8px 24px;
   border-bottom: 1px solid var(--border);
@@ -80,40 +60,66 @@ a:hover {
 
 .site-name {
   font-family: Georgia, "Times New Roman", "Nanum Myeongjo", serif;
-  font-size: 1.15em;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.site-name:hover {
+  font-size: 1.2em;
   color: var(--text);
   text-decoration: none;
 }
 
 .menu {
   display: flex;
-  gap: 24px;
+  gap: 28px;
 }
 
 .menu a {
   color: var(--muted);
+  text-decoration: none;
+  font-size: 0.8em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .menu a:hover {
-  color: var(--accent);
-  text-decoration: none;
+  color: var(--text);
 }
 
 .menu a.active {
   color: var(--accent);
-  font-weight: 600;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 3px;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 36px 24px 48px;
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", "Nanum Myeongjo", serif;
+  font-weight: 400;
+  font-size: 2.6em;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.affiliation {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+}
+
+.links {
+  margin: 4px 0 0;
 }
 
 /* Home: photo on the left, name and bio on the right; stacked on narrow screens */
 .profile {
   display: flex;
   align-items: flex-start;
-  gap: 36px;
+  gap: 44px;
 }
 
 .profile-text {
@@ -123,18 +129,21 @@ a:hover {
 
 .bio {
   margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
 }
 
 .bio p {
-  margin: 0 0 14px;
+  margin: 0 0 12px;
 }
 
 .photo {
-  width: 200px;
-  height: 250px;
-  border-radius: 12px;
+  width: 220px;
+  height: 275px;
+  border-radius: 6px;
   object-fit: cover;
   flex-shrink: 0;
+  box-shadow: var(--shadow);
 }
 
 .photo-placeholder {
@@ -147,15 +156,19 @@ a:hover {
   font-size: 0.85em;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 720px) {
   .profile {
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
   }
 
   .photo {
     width: 160px;
     height: 200px;
+  }
+
+  h1 {
+    font-size: 2.2em;
   }
 }
 
